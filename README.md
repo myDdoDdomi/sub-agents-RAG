@@ -41,6 +41,47 @@ flowchart LR
 
 요구사항: **Python 3.12+** 뿐이다. 받자마자 동봉 예제 코퍼스로 바로 확인할 수 있다.
 
+### 옵션 A — 코딩 에이전트에게 맡기기 (프롬프트 복붙)
+
+Claude Code 등 코딩 에이전트를 쓰고 있다면 아래 프롬프트를 그대로 붙여넣는다 —
+clone 부터 내 문서 색인·MCP 연결 준비까지 에이전트가 알아서 하고 표로 보고한다.
+`<...>` **두 곳만 자기 값으로 바꾸면 된다.**
+
+```text
+https://github.com/myDdoDdomi/sub-agents-RAG 를 설치하고 내 문서에 연결해줘.
+
+1. 위 저장소를 <설치할 위치, 예: C:\tools 또는 ~/tools> 에 clone 하고, 저장소 README 의
+   "1. 설치 — 옵션 B" 절차대로 .venv 생성(Python 3.12+)과 의존성 설치를 해줘.
+   Windows 에선 venv activate 대신 .venv\Scripts\python.exe 직접 호출로.
+   그다음 동봉 예제 코퍼스로 스모크를 돌려줘: DOCS_RAG_ROOT 를 <클론 위치>/examples 로 두고
+   indexer.py --stats 실행 후 search.py "요청 한도 정책" --no-log 결과에
+   파일명과 줄범위(docs/api-spec_v1.md … 줄 N~M)가 찍히는지 확인.
+
+2. 내 문서 루트는 <문서 폴더 절대경로> 야. 색인할 하위 폴더에 맞게 config.py 의
+   SOURCE_DIRS 를 고치고, DOCS_RAG_ROOT 를 내 문서 루트로 해서 재색인한 뒤,
+   내 문서에 실제로 있는 어구 2~3개로 search.py "<어구>" --no-log 검색해 잡히는지 확인해줘.
+   결과 category 가 전부 etc 로 나오면 config.py 의 CATEGORY_RULES 를 내 폴더 명명에 맞게
+   조정해줘.
+
+3. 지금 프로젝트 루트의 .mcp.json 에 README "3. Claude Code 에 MCP 연결" 형식대로
+   docs-rag 서버 항목을 절대경로 3개(venv 의 python 실행파일 · mcp_server.py ·
+   DOCS_RAG_ROOT)로 추가해줘. 도구 권한 때문에 .mcp.json 을 편집할 수 없으면,
+   내가 복붙만 하면 되는 완성본 JSON 을 경로를 전부 채워서 보여줘.
+
+4. 완료 보고: 설치 경로 · 색인된 문서/조각 수 · 검색 스모크 결과(질의별 top-1) ·
+   .mcp.json 처리 상태를 표로 정리하고, 남은 내 할 일을 알려줘
+   (Claude Code 재시작 → /mcp 에서 docs-rag connected 확인 → README "4. 에이전트와 연결"의
+   트리거 블록을 CLAUDE.md 나 서브에이전트에 추가).
+
+주의: 검증용 검색에는 항상 --no-log 를 붙일 것(실사용 질의 로그 오염 방지). 재색인할 때
+mcp_server.py 프로세스가 떠 있으면 색인 파일 잠금(WinError 5)이 날 수 있으니 먼저 종료할 것.
+```
+
+3번에서 에이전트가 `.mcp.json` 을 직접 못 고치는 환경이어도(일부 도구는 이 파일 편집을
+막는다) 완성본 JSON 을 받아 붙여넣기만 하면 된다.
+
+### 옵션 B — 직접 설치
+
 **Windows (PowerShell)** — venv activate 없이 `python.exe` 직접 호출을 권장:
 
 ```powershell
