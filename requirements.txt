@@ -1,0 +1,18 @@
+# 검색 엔진 — 외부 API 없음
+# L7(qa 독립검증 후속, 2026-08-14) — search.py 의 coverage 계산(2-1)이 bm25s **내부**
+# 구조(retriever.scores["indptr"/"indices"/"data"]·vocab_dict·get_scores_from_ids·
+# nonoccurrence_array)에 직접 결합됐다 — 이전엔 공개 retrieve()/get_scores() API 만
+# 썼지만 이제 결합이 깊어져 상한 없는 버전 범위가 더 위험하다. 검증 버전은 0.3.10
+# (README "사용법" 절과 동일) — 상한을 두어 미검증 메이저/구조변경 버전이 조용히
+# 깔리는 것을 막는다.
+bm25s>=0.2,<0.4
+numpy>=1.24
+
+# MCP 서버 (서브에이전트용)
+# mcp>=2.0 — mcp_server.py 가 쓰는 `mcp.server.MCPServer` 경로는 mcp 2.0 에서 도입됐다
+# (1.x 는 `mcp.server.fastmcp` 경로만 있음). 1.x 가 깔리면 ImportError 로 서버가 안 뜬다.
+mcp>=2.0
+
+# 로컬 HTTP 서버 (사람·외부 시스템용)
+fastapi>=0.115
+uvicorn>=0.30

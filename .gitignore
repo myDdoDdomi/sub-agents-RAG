@@ -1,0 +1,9 @@
+index/
+index.new/
+index.old/
+logs/
+__pycache__/
+*.pyc
+.venv/
+.env
+.mcp.json

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "docs-rag": {
+      "command": "C:\\path\\to\\docs-rag-mcp\\.venv\\Scripts\\python.exe",
+      "args": ["C:\\path\\to\\docs-rag-mcp\\mcp_server.py"],
+      "env": {
+        "DOCS_RAG_ROOT": "C:\\path\\to\\your-docs-root"
+      }
+    }
+  }
+}
