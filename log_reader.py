@@ -303,7 +303,7 @@ def main() -> int:
     except (AttributeError, OSError):
         pass
 
-    parser = argparse.ArgumentParser(description="docs-rag-mcp 질의 로그 판독기(read-only)")
+    parser = argparse.ArgumentParser(description="sub-agents-RAG 질의 로그 판독기(read-only)")
     parser.add_argument("--log", default=str(DEFAULT_LOG_PATH), help="로그 파일 경로(기본: logs/queries.jsonl)")
     parser.add_argument(
         "--index-dir", default=None,

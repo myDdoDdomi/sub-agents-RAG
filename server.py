@@ -1,4 +1,4 @@
-"""docs-rag-mcp 로컬 HTTP 서버 — FastAPI, 오프라인 자가완결 검색 UI + JSON API.
+"""sub-agents-RAG 로컬 HTTP 서버 — FastAPI, 오프라인 자가완결 검색 UI + JSON API.
 
 바인딩 기본값은 127.0.0.1(루프백)이다 — 이 코퍼스는 내부 기획·설계 문서라 바깥에
 노출하지 않는다. --host 로 사용자가 명시적으로 다른 값을 줄 수는 있지만 **기본값은
@@ -41,7 +41,7 @@ DEFAULT_HOST = "127.0.0.1"
 DEFAULT_PORT = 8765
 
 app = FastAPI(
-    title="docs-rag-mcp",
+    title="sub-agents-RAG",
     description="팀 문서 로컬 검색(오프라인, LLM 호출 없음)",
     # ①(code-reviewer, 2026-08-13): FastAPI 기본 /docs(Swagger UI)·/redoc 페이지는
     # cdn.jsdelivr.net(swagger-ui-dist/redoc)·fonts.googleapis.com 을 부른다 — 이
@@ -544,7 +544,7 @@ _PAGE_HEAD = """<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>docs-rag-mcp 검색</title>
+<title>sub-agents-RAG 검색</title>
 <style>
   body { font-family: -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
   form { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
@@ -560,7 +560,7 @@ _PAGE_HEAD = """<!doctype html>
 </style>
 </head>
 <body>
-<h1>docs-rag-mcp 문서 검색</h1>
+<h1>sub-agents-RAG 문서 검색</h1>
 <p class="meta">팀 문서 로컬 검색(오프라인, LLM 호출 없음). API: <code>/search?q=&amp;category=&amp;k=</code></p>
 """
 
@@ -734,7 +734,7 @@ def _warm_staleness_cache() -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="docs-rag-mcp 로컬 HTTP 서버")
+    parser = argparse.ArgumentParser(description="sub-agents-RAG 로컬 HTTP 서버")
     parser.add_argument(
         "--host", default=DEFAULT_HOST,
         help=f"바인딩 호스트(기본 {DEFAULT_HOST} — 내부 문서라 기본값을 바꾸지 않는 것을 권장)",

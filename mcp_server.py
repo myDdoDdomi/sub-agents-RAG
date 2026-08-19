@@ -1,4 +1,4 @@
-"""docs-rag-mcp MCP stdio 서버 — search_docs / list_doc_categories 툴 2개.
+"""sub-agents-RAG MCP stdio 서버 — search_docs / list_doc_categories 툴 2개.
 
 stdout 오염 금지 계약(중요, 3차 배치 실측 2026-08-13):
   · mcp 2.0.0 의 `mcp.server.stdio.stdio_server()` 는 서빙 중 OS 레벨에서 fd 1

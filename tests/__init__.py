@@ -1,4 +1,4 @@
-"""docs-rag-mcp 회귀 스위트.
+"""sub-agents-RAG 회귀 스위트.
 
 이 패키지가 임포트되는 순간(= 어떤 실행 방식으로 스위트를 돌리든 — `unittest discover`,
 개별 모듈 실행, IDE 러너 등 전부 `tests` 패키지 임포트를 거친다) 질의 로그 스위치를

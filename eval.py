@@ -369,7 +369,7 @@ def main() -> int:
     # 오타(예: `--flor`)가 조용히 골든 게이트를 정상 실행하고 종료 코드도 정상으로
     # 끝냈다 — 사용자는 --floor 를 돌린 줄 알지만 실제로는 다른 걸 돌린 것이다. argparse
     # 로 바꿔 미지 인자는 에러로 걸러지고 `--help` 도 생긴다.
-    parser = argparse.ArgumentParser(description="docs-rag-mcp 검증 게이트")
+    parser = argparse.ArgumentParser(description="sub-agents-RAG 검증 게이트")
     parser.add_argument("--verbose", action="store_true", help="상위 k 전체 표시(F3 이후: 실패한 substr 질의도 top-DIAG_K 까지)")
     parser.add_argument("--floor", action="store_true", help="confidence 하한 측정 모드(도메인 안/밖 raw_max 분포 + 2축 기준 오탐/미탐 집계)")
     args = parser.parse_args()

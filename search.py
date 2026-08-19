@@ -2047,7 +2047,7 @@ if __name__ == "__main__":
     except (AttributeError, OSError):
         pass
 
-    parser = argparse.ArgumentParser(description="docs-rag-mcp BM25 검색 CLI")
+    parser = argparse.ArgumentParser(description="sub-agents-RAG BM25 검색 CLI")
     parser.add_argument("query", help="검색어")
     parser.add_argument("--category", default="all", help="카테고리 (list_doc_categories 참고, 기본 all)")
     parser.add_argument("--k", type=int, default=config.DEFAULT_K, help=f"반환 개수 (기본 {config.DEFAULT_K})")

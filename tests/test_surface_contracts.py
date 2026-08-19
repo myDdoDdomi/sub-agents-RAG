@@ -257,7 +257,7 @@ class TestStdioRoundTrip(unittest.TestCase):
 
     `config.INDEX_DIR` 는 환경변수로 오버라이드할 수 없다(config.py 수정 금지 —
     지시서 §2) — 그래서 이 테스트만은 **실제 서브프로세스**로 mcp_server.py 를 띄우고,
-    그 서브프로세스는 항상 실 `docs-rag-mcp/index/` 를 읽는다(순수 조회만 하므로 실
+    그 서브프로세스는 항상 실 `sub-agents-RAG/index/` 를 읽는다(순수 조회만 하므로 실
     색인을 변경하지 않는다). 실 색인이 없는 환경(예: CI 최초 클론)에서는 스킵하되
     **스킵 사유가 -v 실행 시 출력되게** 한다(지시서 §6 명시 요구 — 무음 스킵 금지).
     """

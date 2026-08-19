@@ -153,7 +153,7 @@ class IsolatedIndexCase(unittest.TestCase):
 
 
 def real_index_available() -> bool:
-    """실 index/(docs-rag-mcp/index/) 가 존재하는지 — stdio 통합 티어의 skipUnless 조건.
+    """실 index/(sub-agents-RAG/index/) 가 존재하는지 — stdio 통합 티어의 skipUnless 조건.
 
     `config.INDEX_DIR`/`config.DOCS_ROOT` 를 건드리지 않고 호출해야 한다(호출 시점의
     config 값을 그대로 쓴다) — 이 함수를 부르는 시점에 어떤 테스트도 config 를
